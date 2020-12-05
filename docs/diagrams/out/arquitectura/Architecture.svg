@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="425px" preserveAspectRatio="none" style="width:464px;height:425px;" version="1.1" viewBox="0 0 464 425" width="464px" zoomAndPan="magnify"><defs><filter height="300%" id="f19e0aoep31n16" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="117" x="167.2995" y="16.708">Architecture</text><polygon fill="#FFFFFF" filter="url(#f19e0aoep31n16)" points="215.5,26.9531,386.5,26.9531,393.5,49.25,400.5,49.25,400.5,79.5469,215.5,79.5469,215.5,26.9531" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="215.5" x2="393.5" y1="49.25" y2="49.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="165" x="219.5" y="41.9482">kodenix.mastermind</text><polygon fill="#FFFFFF" filter="url(#f19e0aoep31n16)" points="16,252.9531,250,252.9531,257,275.25,264,275.25,264,305.5469,16,305.5469,16,252.9531" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="257" y1="275.25" y2="275.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="228" x="20" y="267.9482">kodenix.mastermind.models</text><polygon fill="#FFFFFF" filter="url(#f19e0aoep31n16)" points="190.5,139.9531,411.5,139.9531,418.5,162.25,425.5,162.25,425.5,192.5469,190.5,192.5469,190.5,139.9531" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="190.5" x2="418.5" y1="162.25" y2="162.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="215" x="194.5" y="154.9482">kodenix.mastermind.views</text><polygon fill="#FFFFFF" filter="url(#f19e0aoep31n16)" points="299,252.9531,409,252.9531,416,275.25,423,275.25,423,305.5469,299,305.5469,299,252.9531" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="299" x2="416" y1="275.25" y2="275.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="104" x="303" y="267.9482">kodenix.utils</text><polygon fill="#6495ED" filter="url(#f19e0aoep31n16)" points="317.5,365.9531,390.5,365.9531,397.5,388.25,404.5,388.25,404.5,418.5469,317.5,418.5469,317.5,365.9531" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="317.5" x2="397.5" y1="388.25" y2="388.25"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="67" x="321.5" y="380.9482">java.util</text><!--MD5=[27d394d23915adc3f8c02ed7effc8b8f]
+link kodenix.mastermind to kodenix.mastermind.views--><path d="M308,80.1981 C308,96.4491 308,117.5321 308,134.6671 " fill="none" id="kodenix.mastermind-to-kodenix.mastermind.views" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="308,139.8481,312,130.8481,308,134.8481,304,130.8481,308,139.8481" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[caf0319bc653ca1a6d7a019342c893c4]
+link kodenix.mastermind to kodenix.mastermind.models--><path d="M247.124,80.0631 C220.665,94.0981 191.539,113.9881 173,139.9531 C150.121,171.9961 142.937,217.7831 140.775,247.8061 " fill="none" id="kodenix.mastermind-to-kodenix.mastermind.models" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="140.448,252.8531,145.0207,244.1302,140.7708,247.8636,137.0374,243.6136,140.448,252.8531" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9408035b81c1af032f3ad6e4eca92851]
+link kodenix.mastermind.views to kodenix.mastermind.models--><path d="M269.035,193.1981 C243.273,210.2191 209.486,232.5431 182.948,250.0771 " fill="none" id="kodenix.mastermind.views-to-kodenix.mastermind.models" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="178.754,252.8481,188.4682,251.2248,182.9259,250.0921,184.0586,244.5498,178.754,252.8481" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[edae1011b7562809ff1f49ee1d938fef]
+link kodenix.mastermind.views to kodenix.utils--><path d="M320.292,193.1981 C328.119,209.5891 338.293,230.8961 346.511,248.1091 " fill="none" id="kodenix.mastermind.views-to-kodenix.utils" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="348.774,252.8481,348.5054,243.0029,346.6195,248.3361,341.2862,246.4502,348.774,252.8481" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0969a720f902f09d59cd8e29c7f8a3a0]
+link kodenix.mastermind to java.util--><path d="M375.287,80.0741 C401.292,93.6721 428.286,113.2181 443,139.9531 C453.42,158.8861 457.599,262.6751 440,305.9531 C431.157,327.6991 414.075,347.3136 398.05,362.2539 " fill="none" id="kodenix.mastermind-to-java.util" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="394.005,365.9501,403.3473,362.8323,397.6962,362.5775,397.9511,356.9263,394.005,365.9501" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c1dc6c1113296890bdb88527364481f7]
+link kodenix.utils to java.util--><path d="M361,306.1981 C361,322.4489 361,343.5326 361,360.667 " fill="none" id="kodenix.utils-to-java.util" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="361,365.8481,365,356.8481,361,360.8481,357,356.8481,361,365.8481" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[76298a51ab2f893dd2bb198b51dbf067]
+link kodenix.mastermind.models to java.util--><path d="M190.979,306.0581 C227.578,324.4404 276.594,349.0592 312.592,367.1398 " fill="none" id="kodenix.mastermind.models-to-java.util" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="317.36,369.5345,311.1129,361.9205,312.892,367.2903,307.5221,369.0693,317.36,369.5345" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[35c9683386f4ba2009d193cca3b58bfd]
+@startuml
+title Architecture
+
+package kodenix.mastermind {}
+package kodenix.mastermind.models {}
+package kodenix.mastermind.views {}
+package kodenix.utils {}
+package java.util #6495ED {}
+
+kodenix.mastermind .down.> kodenix.mastermind.views
+kodenix.mastermind .down.> kodenix.mastermind.models
+kodenix.mastermind.views .down.> kodenix.mastermind.models
+kodenix.mastermind.views .down.> kodenix.utils
+kodenix.mastermind .down.> java.util
+kodenix.utils .down.> java.util
+kodenix.mastermind.models .down.> java.util
+
+'kodenix.mastermind.models .down.> java.util
+@enduml
+
+@startuml
+title Architecture
+
+package kodenix.mastermind {}
+package kodenix.mastermind.models {}
+package kodenix.mastermind.views {}
+package kodenix.utils {}
+package java.util #6495ED {}
+
+kodenix.mastermind .down.> kodenix.mastermind.views
+kodenix.mastermind .down.> kodenix.mastermind.models
+kodenix.mastermind.views .down.> kodenix.mastermind.models
+kodenix.mastermind.views .down.> kodenix.utils
+kodenix.mastermind .down.> java.util
+kodenix.utils .down.> java.util
+kodenix.mastermind.models .down.> java.util
+
+@enduml
+
+PlantUML version 1.2020.22beta3(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

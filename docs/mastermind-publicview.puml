@@ -1,0 +1,85 @@
+@startuml Mastermind_PublicView_v3_0_0
+
+title Mastermind_PublicView v3.0.0
+
+note as N1
+  <b>instanceOf(team)</b>
+  - Alberto Morales a.k.a kodenix
+  - Antonio Cruz Vela
+  - José Carlos Fernández Bermejo
+  - Juan Antonio Pavón Carmona
+  - Carlos Barea
+  - Carlos Sánchez
+  - Maitere Pagola
+  - Rubén Badenas
+end note
+
+
+class Mastermind {
+    +Mastermind()
+    +play() : void
+}
+
+class Attempt{
+    +Attempt(SecretCombination)
+    +isWinner() : bool
+    +toString() : string
+}
+
+
+class Result{
+    +Result(whites: int, blacks: int)
+    +getWhites() : int
+    +getBlacks() : int
+}
+
+enum Color{
+    RED('r')
+    GREEN('g')
+    BLUE ('b')
+    YELLOW('y')
+    ORANGE('o')
+    PINK('p')
+    +{static} getAvailableColors() : string
+    +{static} getColorByChar(char) : Color
+    +isSameColorAs(color : Color) : bool
+    +toString() : string
+}
+
+abstract class Combination{
+    +toString() : string
+}
+
+class SecretCombination{
+    +SecretCombination()
+    +evalueCombination(ProposedCombination) : Result
+    +toString() : string
+}
+
+class ProposedCombination{
+    +ProposedCombination()
+    +read(): void
+}
+
+class Console{
+    +write(promptMessage : string) : void
+    +read(promptMessage : string) : string
+}
+
+
+
+Mastermind *--> SecretCombination
+Mastermind *--> "0..10" Attempt
+
+Combination ^-- SecretCombination
+Combination ^-- ProposedCombination
+Combination *--> "4" Color
+
+Attempt *--> ProposedCombination
+Attempt *--> Result
+Attempt ..> SecretCombination
+
+Mastermind ..> Console
+ProposedCombination ..> Console
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+title Architecture
+
+package kodenix.mastermind {}
+package kodenix.mastermind.models {}
+package kodenix.mastermind.views {}
+package kodenix.utils {}
+package java.util #6495ED {}
+
+kodenix.mastermind .down.> kodenix.mastermind.views
+kodenix.mastermind .down.> kodenix.mastermind.models
+kodenix.mastermind.views .down.> kodenix.mastermind.models
+kodenix.mastermind.views .down.> kodenix.utils
+kodenix.mastermind .down.> java.util
+kodenix.utils .down.> java.util
+kodenix.mastermind.models .down.> java.util
+
+'kodenix.mastermind.models .down.> java.util
+@enduml
