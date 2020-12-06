@@ -1,0 +1,40 @@
+@startuml package-mastermind
+title Package kodenix.mastermind 
+
+package kodenix.mastermind.views {
+    class WrapperView {
+        +WrapperView(:Game)
+        init()
+    }
+    class StartView {
+        +StartView()
+        +show(): void
+    }
+    class PlayView {
+        +PlayView(:Game)
+        +init(): void
+    }
+    class GameView {
+        +GameView(:Game)
+    }
+    class ResumeView {
+        +ResumeView()
+        +needResume(): boolean
+    }
+    class AttemptView {}
+    class SecretCombinationView {}
+    class ProposeCombinationView {}
+
+    
+    WrapperView *-down-> StartView
+    WrapperView *-down-> PlayView
+    WrapperView *-down-> ResumeView
+    PlayView .down.> GameView
+    GameView *-down-> AttemptView
+    
+}
+
+
+
+
+@enduml

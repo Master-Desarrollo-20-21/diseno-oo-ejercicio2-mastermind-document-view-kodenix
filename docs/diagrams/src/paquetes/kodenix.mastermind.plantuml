@@ -1,0 +1,21 @@
+@startuml package-mastermind
+title Package kodenix.mastermind 
+
+package kodenix.mastermind {
+    class MasterMind {}
+}
+
+package kodenix.mastermind.models {
+    class Game {}
+}
+
+package kodenix.mastermind.views {
+    class WrapperView {}
+}
+
+MasterMind *--> WrapperView
+MasterMind *--> Game
+WrapperView .right.> Game
+
+
+@enduml
