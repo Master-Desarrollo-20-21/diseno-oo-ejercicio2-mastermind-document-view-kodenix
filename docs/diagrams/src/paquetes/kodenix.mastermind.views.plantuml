@@ -2,8 +2,8 @@
 title Package kodenix.mastermind 
 
 package kodenix.mastermind.views {
-    class WrapperView {
-        +WrapperView(:Game)
+    class View {
+        +View(:Game)
         init()
     }
     class StartView {
@@ -26,9 +26,9 @@ package kodenix.mastermind.views {
     class ProposeCombinationView {}
 
     
-    WrapperView *-down-> StartView
-    WrapperView *-down-> PlayView
-    WrapperView *-down-> ResumeView
+    View *-down-> StartView
+    View *-down-> PlayView
+    View *-down-> ResumeView
     PlayView .down.> GameView
     GameView *-down-> AttemptView
     

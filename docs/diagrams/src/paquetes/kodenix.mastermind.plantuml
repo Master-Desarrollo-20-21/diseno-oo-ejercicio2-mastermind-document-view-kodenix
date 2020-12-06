@@ -2,7 +2,12 @@
 title Package kodenix.mastermind 
 
 package kodenix.mastermind {
-    class MasterMind {}
+    class MasterMind {
+        -game: Game
+        -view: View 
+        +play(): void
+        +main(:String[]): void
+    }
 }
 
 package kodenix.mastermind.models {
@@ -10,12 +15,12 @@ package kodenix.mastermind.models {
 }
 
 package kodenix.mastermind.views {
-    class WrapperView {}
+    class View {}
 }
 
-MasterMind *--> WrapperView
+MasterMind *--> View
 MasterMind *--> Game
-WrapperView .right.> Game
+View .right.> Game
 
 
 @enduml
