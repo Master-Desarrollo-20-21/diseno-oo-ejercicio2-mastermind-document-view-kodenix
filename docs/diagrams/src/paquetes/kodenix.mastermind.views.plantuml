@@ -4,34 +4,57 @@ title Package kodenix.mastermind
 package kodenix.mastermind.views {
     class View {
         +View(:Game)
-        init()
+        +init()
     }
     class StartView {
         +StartView()
-        +show(): void
+        ~show(): void
     }
     class PlayView {
         +PlayView(:Game)
-        +init(): void
+        ~init(): void
     }
     class GameView {
         +GameView(:Game)
+        ~interact(): void
     }
     class ResumeView {
         +ResumeView()
-        +needResume(): boolean
+        ~needResume(): boolean
     }
     class AttemptView {}
     class SecretCombinationView {}
     class ProposeCombinationView {}
+    
+    class Message {
+        +TITLE
 
+        -message: String;
+        -Message(String)
+    }
     
     View *-down-> StartView
     View *-down-> PlayView
     View *-down-> ResumeView
     PlayView .down.> GameView
     GameView *-down-> AttemptView
-    
+    StartView .down.> kodenix.utils.Console
+    StartView .down.> Message
+
+    View o--> kodenix.mastermind.models.Game
+    PlayView o--> kodenix.mastermind.models.Game
+    GameView o--> kodenix.mastermind.models.Game
+}
+
+package kodenix.mastermind.models {
+    class Game {}
+}
+
+package kodenix.utils {
+    class Console {
+        +write(promptMessage : string) : void
+        +read(promptMessage : string) : string
+    }
 }
 
 
