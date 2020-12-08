@@ -38,8 +38,10 @@ package kodenix.mastermind.views {
     View *-down-> ResumeView
     PlayView .down.> GameView
     GameView *-down-> AttemptView
+    GameView .down.> kodenix.utils.Console
     StartView .down.> kodenix.utils.Console
     StartView .down.> Message
+
 
     View o--> kodenix.mastermind.models.Game
     PlayView o--> kodenix.mastermind.models.Game

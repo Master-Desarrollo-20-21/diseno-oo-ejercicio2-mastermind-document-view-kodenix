@@ -13,5 +13,9 @@ public class Game {
 
 	public int getAttempts() {
 		return this.attempts.size();
+    }
+    
+    public String getPrintedSecretCombination() {
+		return this.secretCombination.toString();
 	}
 }

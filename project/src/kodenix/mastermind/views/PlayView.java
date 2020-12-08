@@ -12,11 +12,13 @@ public class PlayView {
 
 	void init() {
 
+		int i = 0;
+
 		do {
 			this.gameView.interact();
-
+			i++;
 		} while (
-			2 !=4
+			i<1
 			//is not winner
 			// game not finished
 		);
