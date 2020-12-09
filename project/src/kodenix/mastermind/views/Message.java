@@ -2,7 +2,10 @@ package kodenix.mastermind.views;
 
 enum Message {
     TITLE("-------MASTERMIND--------"),
-    RESUME("Resume? (y/n)");
+    RESUME_QUESTION("Resume? (y/n)"),
+    RESPONSE_YES("y"),
+    RESPONSE_NO("n"), 
+    PROPOSE_COMBINATION("Propose a combination: ");
 
     private String message;
 

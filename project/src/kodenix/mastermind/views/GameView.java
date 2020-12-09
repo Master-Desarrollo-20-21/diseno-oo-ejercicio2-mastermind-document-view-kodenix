@@ -13,8 +13,7 @@ public class GameView {
     }
 	
 	void interact() {
-            this.show
-            this.attemptView.showAttemptsInfo();
+        this.attemptView.interact();
                 
         
         // Imprimir listado de Attempts rybo --> 1 blacks and 1 whites

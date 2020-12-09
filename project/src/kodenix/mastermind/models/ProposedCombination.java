@@ -3,43 +3,35 @@ package kodenix.mastermind.models;
 import java.util.HashSet;
 import java.util.Set;
 
-class ProposedCombination extends Combination {
+public class ProposedCombination extends Combination {
 
-    public void read() {
-        String proposedString;
-		/*do {
-			proposedString=new Console().read("Propose a combination: ");
-        }while(!this.isValid(proposedString));
-        createCombination(proposedString);
-        */
+    private String proposedString;
+
+    public ProposedCombination() {}
+
+    public ProposedCombination(String proposedString) {
+        super();
+        this.proposedString = proposedString;
+
+        if (isValid()) {
+            this.createCombination();
+        }
     }
 
-    private void createCombination(String combinationString){
+    private void createCombination(){
         for (int i=0;i<LENGTH;i++) {
-			this.colors[i]=Color.getColorByChar(combinationString.charAt(i));
+			this.colors[i]=Color.getColorByChar(this.proposedString.charAt(i));
 		}
     }
     
-    private boolean isValid(String proposedString){
-        return true;
-        /*
-        Console console=new Console();
-        if(!isValidLength(proposedString)){
-            console.write("Wrong proposed combination length\n");
-            return false;
-        }
-
-        if(!this.isValidColor(proposedString)) {
-			console.write("Wrong colors they must be: " + Color.getAvailableColors()+"\n");
-			return false;
-        }
-
-        if(this.isRepeatedColor(proposedString)) {
-			console.write("Wrong proposed, can not repeat color.\n");
-			return false;
-		}
-        return true;
-        */
+    public boolean isValid(){
+        
+        return (!(
+            !isValidLength(proposedString) || 
+            !this.isValidColor(proposedString) || 
+            this.isRepeatedColor(proposedString)
+        ));
+        
     }
 
     private boolean isValidLength(String proposedString) {

@@ -5,22 +5,24 @@ import kodenix.mastermind.models.Game;
 public class View {
     Game game;
     StartView startView;
-    PlayView playView;
+    GameView gameView;
     ResumeView resumeView;
     
     public View(Game game) {
         this.game = game;
         this.startView = new StartView();
-        this.playView = new PlayView(game);
-        this.resumeView = new ResumeView();
+        this.gameView = new GameView(game);
+        this.resumeView = new ResumeView(game);
     }
     
     public void init() {
         
         do {
             this.startView.show();
-            this.playView.init();
-        } while (this.resumeView.needResume());
+            do {
+                this.gameView.interact();			
+            } while (this.game.hasWinner() || this.game.hasLosser());
+        } while (this.resumeView.isResumed());
         
     }
 

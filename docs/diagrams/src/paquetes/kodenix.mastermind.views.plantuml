@@ -10,46 +10,54 @@ package kodenix.mastermind.views {
         +StartView()
         ~show(): void
     }
-    class PlayView {
-        +PlayView(:Game)
-        ~init(): void
+    class ResumeView {
+        +ResumeView(:Game)
+        ~isResumed(): boolean
     }
     class GameView {
         +GameView(:Game)
         ~interact(): void
     }
-    class ResumeView {
-        +ResumeView()
-        ~needResume(): boolean
+    class AttemptView {
+        +AttemptView(:Game)
+        ~interact(): void
     }
-    class AttemptView {}
-    class SecretCombinationView {}
-    class ProposeCombinationView {}
-    
     class Message {
         +TITLE
-
+        +RESUME_QUESTION
+        +RESPONSE_YES
+        +RESPONSE_NOT
+        +PROPOSE_COMBINATION
         -message: String;
         -Message(String)
     }
     
     View *-down-> StartView
-    View *-down-> PlayView
+    View *-down-> GameView
     View *-down-> ResumeView
-    PlayView .down.> GameView
     GameView *-down-> AttemptView
     GameView .down.> kodenix.utils.Console
     StartView .down.> kodenix.utils.Console
     StartView .down.> Message
+    ResumeView .down.> Message
+    AttemptView .down.> Message
+    AttemptView .down.> kodenix.utils.Console
 
-
+    
     View o--> kodenix.mastermind.models.Game
-    PlayView o--> kodenix.mastermind.models.Game
     GameView o--> kodenix.mastermind.models.Game
+    ResumeView o--> kodenix.mastermind.models.Game
+    AttemptView o--> kodenix.mastermind.models.Game
 }
 
 package kodenix.mastermind.models {
-    class Game {}
+    class Game {
+        -attempts: ArrayList<Attempt>
+        +reset(): void
+        +hasWinner(): boolean
+        +hasLosser(): boolean
+        +getAttemptsSize(): int
+    }
 }
 
 package kodenix.utils {

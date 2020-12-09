@@ -4,9 +4,8 @@ class Attempt {
 	private ProposedCombination proposedCombination;
 	private Result result;
 
-	public Attempt(SecretCombination secretCombination) {
-		this.proposedCombination = new ProposedCombination();
-		this.proposedCombination.read();
+	public Attempt(SecretCombination secretCombination, ProposedCombination proposedCombination) {
+		this.proposedCombination = proposedCombination;
 		this.result = secretCombination.evalueCombination(this.proposedCombination);
 	}
 
