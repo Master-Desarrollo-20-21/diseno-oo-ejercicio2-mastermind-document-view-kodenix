@@ -21,23 +21,31 @@ public class Game {
 	}
 
 	public boolean hasWinner() {
-		return attempts.get(attempts.size()-1).isWinner();
+		return attempts.get(this.getAttemptsSize()-1).isWinner();
+    }
+	
+	private boolean isLastAttempt() {
+		return this.getAttemptsSize() == this.MAX_ATTEMPTS;
+	}
+	
+	public boolean isFinished() {
+        return this.isLastAttempt() || this.hasWinner();
     }
 
     public int getAttemptsSize() {
         return this.attempts.size();
     }
 
-    public boolean hasLosser() {
-        return this.getAttemptsSize() <= this.MAX_ATTEMPTS;
-    }
-
-    public String[] getAttemptList() {
+    /*public String[] getAttemptList() {
         String[] attemptsList = new String[this.getAttemptsSize()]; 
         for (int i=0; i < this.getAttemptsSize(); i++) {
             attemptsList[i] = this.attempts.get(i).toString();
         }
         return attemptsList;
+    }*/
+    
+    public ArrayList<Attempt> getAttemptList() {
+        return this.attempts;
     }
 
     public void addNewAttempt(ProposedCombination proposedCombination) {

@@ -14,10 +14,12 @@ class Mastermind {
     +play() : void
 }
 
-class Attempt{
++class Attempt{
     +Attempt(SecretCombination)
     +isWinner() : bool
-    +toString() : string
+    +getPrintedProposedCombination() : string
+    +getBlacks(): int
+    +getWhites(): int
 }
 
 
@@ -36,7 +38,7 @@ enum Color{
     PINK('p')
     +{static} getAvailableColors() : string
     +{static} getColorByChar(char) : Color
-    +isSameColorAs(color : Color) : bool
+    +isSameColorAs(color : Color) : boolean
     +toString() : string
 }
 
@@ -51,13 +53,22 @@ class SecretCombination{
 }
 
 class ProposedCombination{
-    +ProposedCombination()
-    +read(): void
+    +ProposedCombination(String)
+    +getError(): Error
 }
 
 class Console{
     +write(promptMessage : string) : void
     +read(promptMessage : string) : string
+}
+
+enum Error{
+    WRONG_LENGTH
+    WRONG_COLORS
+    REPEATED_COLOR
+    NULL
+    
+    +isNull(): boolean
 }
 
 

@@ -18,6 +18,6 @@ public class GameView {
         
         // Imprimir listado de Attempts rybo --> 1 blacks and 1 whites
         // Propose a combination: loqueescriba el usuario y errores abajo
-        }
+    }
 
 }

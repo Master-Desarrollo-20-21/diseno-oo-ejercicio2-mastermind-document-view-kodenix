@@ -1,6 +1,6 @@
 package kodenix.mastermind.models;
 
-class Attempt {
+public class Attempt {
 	private ProposedCombination proposedCombination;
 	private Result result;
 
@@ -16,10 +16,16 @@ class Attempt {
 		return false;
 	}
 
-	@Override
-	public String toString() {
-		return this.proposedCombination.toString() +
-			" --> " + this.result.getBlacks() + "blacks and" +
-			this.result.getWhites() + " whites";
+	public String getPrintedProposedCombination() {
+		return this.proposedCombination.toString();
 	}
+	
+	public int getBlacks() {
+		return this.result.getBlacks();
+	}
+	
+	public int getWhites() {
+		return this.result.getWhites();
+	}
+	
 }

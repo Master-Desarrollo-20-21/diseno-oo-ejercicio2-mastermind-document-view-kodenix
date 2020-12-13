@@ -1,5 +1,7 @@
 package kodenix.mastermind.models;
 
+import kodenix.utils.Console;
+
 class SecretCombination extends Combination {
 
 		
@@ -9,7 +11,8 @@ class SecretCombination extends Combination {
 	public SecretCombination() {
 
 		this.colors = new Color[LENGTH];
-		var combination = this.generateRandomString();
+		String combination = this.generateRandomString();
+		Console.getInstance().write(combination);
 		
 		for(int i=0; i<LENGTH; i++){
 			this.colors[i] = Color.getColorByChar(combination.charAt(i));
@@ -50,8 +53,8 @@ class SecretCombination extends Combination {
 		String availableColors = Color.getAvailableColors();
 	    
 	    while(result.length() < LENGTH) {
-	    	var randomIndex = randomIndex(availableColors.length());
-	    	var electedColor = availableColors.charAt(randomIndex);
+	    	int randomIndex = randomIndex(availableColors.length());
+	    	char electedColor = availableColors.charAt(randomIndex);
 	    	result += electedColor;
 	        availableColors = availableColors.replaceFirst("" + electedColor, "");
 	    }

@@ -4,15 +4,22 @@ title Package kodenix.mastermind
 package kodenix.mastermind.views {
     class View {
         +View(:Game)
-        +init()
+        +interact()
     }
     class StartView {
         +StartView()
-        ~show(): void
+        ~interact(): void
     }
     class ResumeView {
         +ResumeView(:Game)
+        -resetGame(): void
+        ~interact(): void
         ~isResumed(): boolean
+    }
+    class WinnerLosserView {
+        +WinnerLosserView(:Game)
+        ~interact(): void
+        ~isFinishedGame(): boolean
     }
     class GameView {
         +GameView(:Game)
@@ -22,7 +29,13 @@ package kodenix.mastermind.views {
         +AttemptView(:Game)
         ~interact(): void
     }
-    class Message {
+    
+    class ErrorView {
+        +ErrorView(:Error)
+        ~write(): void
+    }
+
+    enum Message {
         +TITLE
         +RESUME_QUESTION
         +RESPONSE_YES
@@ -30,24 +43,31 @@ package kodenix.mastermind.views {
         +PROPOSE_COMBINATION
         -message: String;
         -Message(String)
+        +toString(): String
     }
     
     View *-down-> StartView
     View *-down-> GameView
     View *-down-> ResumeView
-    GameView *-down-> AttemptView
-    GameView .down.> kodenix.utils.Console
-    StartView .down.> kodenix.utils.Console
+    View *-down-> WinnerLosserView
+    GameView *-down-> AttemptView 
+    
     StartView .down.> Message
+    StartView .down.> kodenix.utils.Console
     ResumeView .down.> Message
+    ResumeView .down.> kodenix.utils.Console
+    'GameView .down.> kodenix.utils.Console
     AttemptView .down.> Message
     AttemptView .down.> kodenix.utils.Console
-
+    WinnerLosserView .down.> Message
+    WinnerLosserView .down.> kodenix.utils.Console
+    
     
     View o--> kodenix.mastermind.models.Game
     GameView o--> kodenix.mastermind.models.Game
     ResumeView o--> kodenix.mastermind.models.Game
     AttemptView o--> kodenix.mastermind.models.Game
+    WinnerLosserView o--> kodenix.mastermind.models.Game
 }
 
 package kodenix.mastermind.models {
@@ -55,19 +75,18 @@ package kodenix.mastermind.models {
         -attempts: ArrayList<Attempt>
         +reset(): void
         +hasWinner(): boolean
-        +hasLosser(): boolean
+        +isFinished(): boolean
         +getAttemptsSize(): int
     }
 }
 
 package kodenix.utils {
     class Console {
+        -Console()
+        +{static} getInstance(): Console
         +write(promptMessage : string) : void
         +read(promptMessage : string) : string
     }
 }
-
-
-
 
 @enduml

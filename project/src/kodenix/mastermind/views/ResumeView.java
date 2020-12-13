@@ -13,23 +13,25 @@ public class ResumeView {
     }
 
     boolean isResumed() {
-        this.interact();
         return this.isResumed;
     }
 
-    private void interact() {
-        Console console = new Console();
+    void interact() {
         String response = "";
         
         do {
-            response = console.read(Message.RESUME_QUESTION.toString());
+            response = Console.getInstance().read(Message.RESUME_QUESTION.toString());
         } while (!(response.equals(Message.RESPONSE_YES.toString()) || response.equals(Message.RESPONSE_NO.toString())));
-
-        this.isResumed = response.equals("y");
+        
+        this.isResumed = response.equals(Message.RESPONSE_YES.toString());        
         
         if (this.isResumed==true) {
-            this.game.reset();
+            this.resetGame();
         }
+    }
+    
+    private void resetGame() {
+    	this.game.reset();
     }
 
 }

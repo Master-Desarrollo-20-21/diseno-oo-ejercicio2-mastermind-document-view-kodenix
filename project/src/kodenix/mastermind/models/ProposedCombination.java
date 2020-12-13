@@ -5,33 +5,29 @@ import java.util.Set;
 
 public class ProposedCombination extends Combination {
 
-    private String proposedString;
-
-    public ProposedCombination() {}
-
-    public ProposedCombination(String proposedString) {
-        super();
-        this.proposedString = proposedString;
-
-        if (isValid()) {
-            this.createCombination();
-        }
+	Error error = Error.NULL;
+	
+	public ProposedCombination(String proposedString) {
+		this.validate(proposedString);
+		if (this.error == Error.NULL) {
+			this.createCombination(proposedString);
+		}
+	}
+    
+    public Error getError() {
+    	return this.error;
     }
 
-    private void createCombination(){
+    private void createCombination(String combinationString){
         for (int i=0;i<LENGTH;i++) {
-			this.colors[i]=Color.getColorByChar(this.proposedString.charAt(i));
+			this.colors[i]=Color.getColorByChar(combinationString.charAt(i));
 		}
     }
     
-    public boolean isValid(){
-        
-        return (!(
-            !isValidLength(proposedString) || 
-            !this.isValidColor(proposedString) || 
-            this.isRepeatedColor(proposedString)
-        ));
-        
+    private void validate(String proposedString){
+        if(!isValidLength(proposedString)) this.error = Error.WRONG_LENGTH;
+        if(!this.isValidColor(proposedString)) this.error = Error.WRONG_COLORS;
+        if(this.isRepeatedColor(proposedString)) this.error = Error.REPEATED_COLOR;
     }
 
     private boolean isValidLength(String proposedString) {
@@ -50,7 +46,6 @@ public class ProposedCombination extends Combination {
     }
 
     private boolean isRepeatedColor(String proposedString) {
-
         return hasDuplicateColor(proposedString);
     }
 
