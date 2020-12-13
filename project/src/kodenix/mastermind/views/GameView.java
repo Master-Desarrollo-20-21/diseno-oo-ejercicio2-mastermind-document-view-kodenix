@@ -1,23 +1,27 @@
 package kodenix.mastermind.views;
+
 import kodenix.mastermind.models.Game;
-import kodenix.utils.Console;
 
-public class GameView {
+public class GameView extends AbstractView {
 
-    private Game game;
-    private AttemptView attemptView;
+	private Game game;
 
     public GameView(Game game) {
-        this.game = game;
-        this.attemptView = new AttemptView(game);
+    	this.game = game;
     }
 	
+    @Override
 	void interact() {
-        this.attemptView.interact();
-                
-        
-        // Imprimir listado de Attempts rybo --> 1 blacks and 1 whites
-        // Propose a combination: loqueescriba el usuario y errores abajo
+		ProposedCombinationView proposedCombinationView = new ProposedCombinationView();
+		new AttemptView(this.game).writeln();
+		new SecretCombinationView(this.game).writeln();
+		
+		for (int i=0; i < this.game.getAttemptSize(); i++) {
+			proposedCombinationView.write(this.game.getProposedCombination(i));
+			new ResultView(this.game.getResult(i)).writeln();
+        }
+		
+        this.game.createNewAttempt(proposedCombinationView.read());
     }
 
 }

@@ -25,9 +25,9 @@ public class ProposedCombination extends Combination {
     }
     
     private void validate(String proposedString){
+        if(this.isRepeatedColor(proposedString)) this.error = Error.REPEATED_COLOR;
         if(!isValidLength(proposedString)) this.error = Error.WRONG_LENGTH;
         if(!this.isValidColor(proposedString)) this.error = Error.WRONG_COLORS;
-        if(this.isRepeatedColor(proposedString)) this.error = Error.REPEATED_COLOR;
     }
 
     private boolean isValidLength(String proposedString) {

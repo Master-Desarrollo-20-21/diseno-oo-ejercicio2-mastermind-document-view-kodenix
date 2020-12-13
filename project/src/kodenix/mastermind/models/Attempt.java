@@ -16,16 +16,16 @@ public class Attempt {
 		return false;
 	}
 
-	public String getPrintedProposedCombination() {
+	public String getProposedCombinationString() {
 		return this.proposedCombination.toString();
 	}
 	
-	public int getBlacks() {
-		return this.result.getBlacks();
+	public ProposedCombination getProposedCombination() {
+		return this.proposedCombination;
 	}
 	
-	public int getWhites() {
-		return this.result.getWhites();
+	public Result getResult() {
+		return this.result;
 	}
 	
 }

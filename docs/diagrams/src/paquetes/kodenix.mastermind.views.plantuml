@@ -6,33 +6,49 @@ package kodenix.mastermind.views {
         +View(:Game)
         +interact()
     }
+
+    abstract class AbstractView {
+        ~{abstract} interact(): void
+    }
+
     class StartView {
         +StartView()
-        ~interact(): void
     }
     class ResumeView {
         +ResumeView(:Game)
         -resetGame(): void
-        ~interact(): void
         ~isResumed(): boolean
     }
     class WinnerLosserView {
         +WinnerLosserView(:Game)
-        ~interact(): void
         ~isFinishedGame(): boolean
     }
     class GameView {
         +GameView(:Game)
-        ~interact(): void
     }
     class AttemptView {
         +AttemptView(:Game)
-        ~interact(): void
+    }
+
+    class SecretCombinationView {
+        +SecretCombination(Game)
+        ~writeln: void
     }
     
     class ErrorView {
         +ErrorView(:Error)
         ~write(): void
+    }
+
+    class ResultView {
+        +ResultView(Result)
+        ~writeln(): void
+    }
+
+    class ProposedCombinationView {
+        +ProposedCombinationView()
+        ~write(): void
+        ~read(): ProposedCombination
     }
 
     enum Message {
@@ -45,39 +61,125 @@ package kodenix.mastermind.views {
         -Message(String)
         +toString(): String
     }
+
+    AbstractView <|-- StartView
+    AbstractView <|-- ResumeView
+    AbstractView <|-- WinnerLosserView
+    AbstractView <|-- GameView
+    AbstractView <|-- AttemptView
     
     View *-down-> StartView
     View *-down-> GameView
     View *-down-> ResumeView
     View *-down-> WinnerLosserView
-    GameView *-down-> AttemptView 
+    GameView .down.> AttemptView 
+    GameView .down.> ProposedCombinationView
+    GameView .down.> ResumeView
+    GameView .down.> SecretCombinationView
+    GameView .down.> ResultView
     
     StartView .down.> Message
     StartView .down.> kodenix.utils.Console
     ResumeView .down.> Message
     ResumeView .down.> kodenix.utils.Console
-    'GameView .down.> kodenix.utils.Console
     AttemptView .down.> Message
     AttemptView .down.> kodenix.utils.Console
     WinnerLosserView .down.> Message
     WinnerLosserView .down.> kodenix.utils.Console
+    ProposedCombinationView .down.> Message
+    ProposedCombinationView .down.> ErrorView
+    ProposedCombinationView .down.> kodenix.utils.Console
+    SecretCombinationView .down.> Message
+    SecretCombinationView .down.> kodenix.utils.Console
+    ResultView .down.> Message
+    ResultView .down.> kodenix.utils.Console
     
-    
-    View o--> kodenix.mastermind.models.Game
     GameView o--> kodenix.mastermind.models.Game
     ResumeView o--> kodenix.mastermind.models.Game
     AttemptView o--> kodenix.mastermind.models.Game
     WinnerLosserView o--> kodenix.mastermind.models.Game
+    ErrorView o--> kodenix.mastermind.models.Error
+    ProposedCombinationView .down.> kodenix.mastermind.models.ProposedCombination
+    ResultView "result" o--> kodenix.mastermind.models.Result
 }
 
 package kodenix.mastermind.models {
-    class Game {
+    +class Game {
         -attempts: ArrayList<Attempt>
+        +Game()
         +reset(): void
+        +getSecretCombination(): string
         +hasWinner(): boolean
         +isFinished(): boolean
-        +getAttemptsSize(): int
+        +getAttemptSize(): int
+        +getAttemptList(): ArrayList<Attempt>
+        +createNewAttempt(ProposedCombination): void
     }
+
+    class Attempt{
+        +Attempt(SecretCombination)
+        +isWinner() : bool
+        +getProposedCombination() : string
+        +getBlacks(): int
+        +getWhites(): int
+    }
+
+
+    class Result{
+        +Result(whites: int, blacks: int)
+        +getWhites() : int
+        +getBlacks() : int
+    }
+
+    enum Color{
+        RED('r')
+        GREEN('g')
+        BLUE ('b')
+        YELLOW('y')
+        ORANGE('o')
+        PINK('p')
+        +{static} getAvailableColors() : string
+        +{static} getColorByChar(char) : Color
+        +isSameColorAs(color : Color) : boolean
+        +toString() : string
+    }
+
+    abstract class Combination{
+        +toString() : string
+    }
+
+    class SecretCombination{
+        +SecretCombination()
+        +evalueCombination(ProposedCombination) : Result
+        +toString() : string
+    }
+
+    class ProposedCombination{
+        +ProposedCombination(String)
+        +getError(): Error
+    }
+
+    enum Error{
+        WRONG_LENGTH
+        WRONG_COLORS
+        REPEATED_COLOR
+        NULL
+        
+        +isNull(): boolean
+    }
+
+    Game *--> SecretCombination
+    Game *--> "0..10" Attempt
+
+    Combination ^-- SecretCombination
+    Combination ^-- ProposedCombination
+    Combination *--> "4" Color
+
+    Attempt *--> ProposedCombination
+    Attempt *--> Result
+    Attempt ..> SecretCombination
+    ProposedCombination ..> Error
+
 }
 
 package kodenix.utils {

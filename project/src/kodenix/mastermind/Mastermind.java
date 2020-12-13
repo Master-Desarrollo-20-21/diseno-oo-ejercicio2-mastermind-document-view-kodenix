@@ -18,7 +18,7 @@ public class Mastermind {
     }
 
     public static void main(String[] args) {	
-        new Mastermind().play();
+    	new Mastermind().play();
     }
     
 }

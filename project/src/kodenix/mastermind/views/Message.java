@@ -5,12 +5,13 @@ enum Message {
     RESUME_QUESTION("Resume? (y/n)"),
     RESPONSE_YES("y"),
     RESPONSE_NO("n"), 
-    PROPOSE_COMBINATION("Propose a combination: "), 
+    PROPOSE_COMBINATION_QUESTION("Propose a combination: "), 
     WINNER("You've won!!! ;-)"), 
-    LOSSER("You've lost!!! :("), 
-    ARROW("-->"), WHITE_SPACE(" "),
-    ATTEMPT("#proposed --> #blacks blacks and #whites whites");
-
+    LOSSER("You've lost!!! :("),
+    PROPOSED_COMBINATION_RESULT("#proposed"),
+	RESULT(" --> #blacks blacks and #whites whites"),
+	ATTEMPTS_TOTAL("#total attempts(s):");
+	
     private String message;
 
     private Message(String message) {

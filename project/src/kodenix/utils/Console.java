@@ -12,6 +12,10 @@ public class Console {
 	}
 	
 	public void write(String promptMessage) {
+		System.out.print(promptMessage);
+	}
+	
+	public void writeln(String promptMessage) {
 		System.out.println(promptMessage);
 	}
 	

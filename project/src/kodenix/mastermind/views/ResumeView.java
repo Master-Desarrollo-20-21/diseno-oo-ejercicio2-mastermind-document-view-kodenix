@@ -3,7 +3,7 @@ package kodenix.mastermind.views;
 import kodenix.mastermind.models.Game;
 import kodenix.utils.Console;
 
-public class ResumeView {
+public class ResumeView extends AbstractView {
 
     private Game game;
     private boolean isResumed = false;
@@ -16,6 +16,7 @@ public class ResumeView {
         return this.isResumed;
     }
 
+    @Override
     void interact() {
         String response = "";
         

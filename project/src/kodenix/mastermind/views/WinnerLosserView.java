@@ -3,7 +3,7 @@ package kodenix.mastermind.views;
 import kodenix.mastermind.models.Game;
 import kodenix.utils.Console;
 
-class WinnerLosserView {
+class WinnerLosserView extends AbstractView {
 
 	private Game game;
 
@@ -11,14 +11,14 @@ class WinnerLosserView {
 		this.game = game;
 	}
 	
+	@Override
 	public void interact() {
 		if (this.isFinishedGame()) {
-			
-			if (this.game.hasWinner()) {
-				Console.getInstance().write(Message.WINNER.toString());
-			} else {
-				Console.getInstance().write(Message.LOSSER.toString());
+			String message = Message.WINNER.toString();
+			if (!this.game.hasWinner()) {
+				message = Message.LOSSER.toString();
 			}
+			Console.getInstance().writeln(message);
 		} 
 	}
 	

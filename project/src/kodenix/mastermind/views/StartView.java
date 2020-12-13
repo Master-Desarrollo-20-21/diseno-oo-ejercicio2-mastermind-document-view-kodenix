@@ -2,10 +2,11 @@ package kodenix.mastermind.views;
 
 import kodenix.utils.Console;
 
-public class StartView {
+public class StartView extends AbstractView {
 
+	@Override
 	void interact() {
-		Console.getInstance().write(Message.TITLE.toString());
+		Console.getInstance().writeln(Message.TITLE.toString());
 	}
     
 }

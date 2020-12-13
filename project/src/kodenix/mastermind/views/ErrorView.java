@@ -16,8 +16,8 @@ class ErrorView {
 		this.error = error;
 	}
 	
-	void write() {
-		Console.getInstance().write(this.textErrors[this.error.ordinal()]);
+	void writeln() {
+		Console.getInstance().writeln(this.textErrors[this.error.ordinal()]);
 	}
 
 }

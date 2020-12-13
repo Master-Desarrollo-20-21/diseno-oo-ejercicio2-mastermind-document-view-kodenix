@@ -2,13 +2,6 @@
 
 title Mastermind_PublicView v3.0.0
 
-package kodenix.mastermind.views { 
-
-
-    
-}
-
-
 class Mastermind {
     +Mastermind()
     +play() : void
